@@ -2,8 +2,18 @@ syntax = 'proto3';
 
 package user.v1;
 
+option go_package = "grpc-with-go/user/v1;userpb";
+
 message User {
+  option deprecated = true;
   string uuid = 1;
   string full_name = 2;
   int64 birth_year = 3;
+  optional  uint32 salary = 4;
+  repeated Address addresses = 5;
+}
+
+message Address {
+  string street = 1;
+  string city = 2;
 }
